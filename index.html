@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>First ML Program</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://unpkg.com/ml5@0.1.3/dist/ml5.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+		p{
+			position: absolute;
+			top:0;
+			left:0;
+			right:0;
+			bottom: 0;
+			text-align: center;
+		}
+	</style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+		<p><b><span id="result">...</span></b> confidence of
+		<b><span id="probability">...</span></b></p>
+
+	<video autoplay="true" id="videoElement" height="500" width="100%"></video>
+</div>
+<script>
+		// The image we want to classify
+		//const image = document.getElementById('image');
+		// The result tag in the HTML
+		const result = document.getElementById('result');
+		// The probability tag in the HTML
+		const probability = document.getElementById('probability');
+
+		var video = document.querySelector("#videoElement");
+
+		var classifier;
+		function createVideo() {
+
+			if (navigator.mediaDevices.getUserMedia) {
+				navigator.mediaDevices.getUserMedia({ video: true })
+					.then(function (stream) {
+						video.srcObject = stream;
+					})
+					.catch(function (err0r) {
+						//console.log("Something went wrong!");
+					});
+			}
+		}
+
+		function setUp(){
+			classifier = ml5.imageClassifier('MobileNet',video, function () {
+				//console.log('Model Loaded!');
+			});
+		}
+
+		function predict(){
+			classifier.predict(function (err, results) {
+				result.innerText = results[0].className;
+				probability.innerText = results[0].probability.toFixed(4) * 100;
+			});
+		}
+		createVideo()
+		
+		setInterval(() => {
+			setUp();
+			predict();	
+		}, 1000);
+		
+
+		
+
+	</script>
+</body>
+</html>
