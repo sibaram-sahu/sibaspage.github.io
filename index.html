@@ -1,79 +1,248 @@
-<!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <title>First ML Program</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://unpkg.com/ml5@0.1.3/dist/ml5.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <style>
-		p{
-			position: absolute;
-			top:0;
-			left:0;
-			right:0;
-			bottom: 0;
-			text-align: center;
-		}
-	</style>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIBASPAGE | Creative Full-stack developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100;0,300;0,500;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pagePiling.js/1.5.6/jquery.pagepiling.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-<div class="container">
-		<p><b><span id="result">...</span></b> confidence of
-		<b><span id="probability">...</span></b></p>
+    <header id="main-header">
+        <div class="logo-container d-flex align-items-center">
+            <h1 class="page-logo load-hidden" onclick="navigateTo(1)">Sibaspage</h1>
+            <div class="menu-link load-hidden">
+                <button class="menu-link__trigger js-menu-trigger" aria-expanded="false" aria-controls="main-menu">
+                    <span class="menu-link__mask">
+                        <span class="menu-link__label menu-link__label--close js-menu-label-close"
+                            aria-hidden="true">Close</span>
+                        <span class="menu-link__label menu-link__label--open js-menu-label-open"
+                            aria-hidden="false">Menu</span>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <audio id="ad-sound">
+        <source src="assets/ad-disable-sound.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <!-- Main container -->
+    <div id="main-slider__container">
+        <div class="section" id="home">
+            <div class="section-container mn-sn-1 position-relative">
+                <div id="particles-container"></div>
+                <div class="d-flex align-items-center main-thread__container">
+                    <div class="main-head-container">
+                        <h1 class="page-header__title load-hidden js-header__title">Hi, my ​<br>name is <b>Siba</b><span class="dot">.</span>
+                        </h1>
+                        <p class="page-header__lede load-hidden">I'm a <b> creative fullstack developer</b> specializing in building (and occasionally designing) exceptional digital experiences.</p>
+                        <div class="scroll-container load-hidden position-relative">
+                            <span class="page-header__scroll" aria-hidden="true">
+                                <span>
+                                    <span>S</span>
+                                    <span>c</span>
+                                    <span>r</span>
+                                    <span>o</span>
+                                    <span>l</span>
+                                    <span>l</span>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="stripe-1 load-hidden strip-box"></div>
+                </div>
+            </div>
+        </div>
+        <div class="section" id="work">
+            <div class="section-container mn-sn-2">
+                <div class="main-thread__container my-work__container">
+                    <div class="position-relative">
+                        <h2 class="work-heading__title"><b>My work</b><span class="dot1 mx-2">.</span></h2>
+                        <p class="page-header__lede mt-5">Having <b>7+ years</b> of experience in <b>Design, Development, Testing and deployement</b> of web and hybrid mobile application.</p>
 
-	<video autoplay="true" id="videoElement" height="500" width="100%"></video>
-</div>
-<script>
-		// The image we want to classify
-		//const image = document.getElementById('image');
-		// The result tag in the HTML
-		const result = document.getElementById('result');
-		// The probability tag in the HTML
-		const probability = document.getElementById('probability');
+                       <div class="my-work__wrapper">
+                            <div class="my-work__details mt-5 d-flex flex-wrap">
+                                <div class="my-work__item shadow">
+                                    <img src="assets/m-w-design.png" alt="Design">
+                                    <h6>Design</h6>
+                                    <p>I conduct user research to identify the problem I want to solve & design the mockup.</p>
+                                </div>
+                                <div class="my-work__item shadow mx-4">
+                                    <img src="assets/m-w-development.png" alt="Development">
+                                    <h6>Development</h6>
+                                    <p>Developing the UI screens and integrate the API's.</p>
+                                </div>
+                                <div class="my-work__item shadow mt-4">
+                                    <img src="assets/m-w-testing.png" alt="Testing">
+                                    <h6>Testing</h6>
+                                    <p>Write Unit test and E2E to test the full feature.</p>
+                                </div>
+                                <div class="my-work__item shadow mx-4 mt-4">
+                                    <img src="assets/m-w-deployement.png" alt="Deployement">
+                                    <h6>Deployement</h6>
+                                    <p>Using AWS deploying the UI as well as APIs.</p>
+                                </div>
+                            </div>
+                       </div>
 
-		var video = document.querySelector("#videoElement");
+                        <div class="stripe-2 load-hidden strip-circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section" id="about">
+            <div class="section-container mn-sn-3">
+                <div class="main-thread__container my-work__container">
+                    <div class="position-relative">
+                        <h2 class="about-heading__title load-hidden"><b>About me</b><span class="dot2 mx-2">.</span></h2>
+                        <p class="page-header__lede mt-5 load-hidden">
+                            Hello! My name is <b><i>Sibaram</i></b> and I enjoy creating things that live on the internet. My interest in web development started back in <b>2014</b> when I decided to try <b>developing websites</b>. 
+                        </p>
 
-		var classifier;
-		function createVideo() {
+                        <div class="skills__container">
+                            <h5 class="mt-5 mb-5">Here are a few technologies I’ve been working with recently:</h5>
+                            <p>Front-end technologies</p>
+                            <div class="programming-language__container d-flex flex-wrap">
+                                <div class="pl-item">JavaScript</div>
+                                <div class="pl-item">HTML</div>
+                                <div class="pl-item">CSS</div>
+                                <div class="pl-item">Angular</div>
+                                <div class="pl-item">JQuery</div>
+                                <div class="pl-item">Bootstrap</div>
+                                <div class="pl-item">Angular Material</div>
+                            </div>
+                            <p>Back-end technologies</p>
+                            <div class="programming-language__container d-flex flex-wrap">
+                                <div class="pl-item">Node JS</div>
+                                <div class="pl-item">Python</div>
+                                <div class="pl-item">Mongo DB</div>
+                                <div class="pl-item">MySQL</div>
+                                <div class="pl-item">GraphQL</div>
+                                <div class="pl-item">AWS</div>
+                            </div>
+                            <p>Testing & Other technologies</p>
+                            <div class="programming-language__container d-flex flex-wrap">
+                                <div class="pl-item">Jasmine</div>
+                                <div class="pl-item">Katalone</div>
+                                <div class="pl-item">Git</div>
+                                <div class="pl-item">Ionic</div>
+                            </div>
+                        </div>
 
-			if (navigator.mediaDevices.getUserMedia) {
-				navigator.mediaDevices.getUserMedia({video: { facingMode: { exact: "environment" } } })
-					.then(function (stream) {
-						video.srcObject = stream;
-					})
-					.catch(function (err0r) {
-						//console.log("Something went wrong!");
-					});
-			}
-		}
+                        <div class="worked-with__container mt-5">
+                            <h6>Worked with:</h6>
 
-		function setUp(){
-			classifier = ml5.imageClassifier('MobileNet',video, function () {
-				//console.log('Model Loaded!');
-			});
-		}
+                            <div class="logos-container d-flex">
+                                <div class="logo-item">
+                                    <a href="https://www.netapp.com/" target="_blank"><img src="assets/lg-netapp.png" alt="NetApp Pvt. Ltd"></a>
+                                </div>
+                                <div class="logo-item">
+                                    <a href="https://www.bosch.com/" target="_blank"><img src="assets/lg-bosch.png" alt="RBEI India"></a>
+                                </div>
+                                <div class="logo-item">
+                                    <a href="https://crrux.com/" target="_blank"><img src="assets/lg-crrux.png" alt="I-nable solution"></a>
+                                </div>
+                                <div class="logo-item">
+                                    <a href="https://casts.co.in/" target="_blank"><img src="assets/lg-casts.png" alt="Casts Pvt. ltd."></a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="stripe-3 load-hidden strip-box"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section" id="contact">
+            <div class="section-container mn-sn-4">
+                <div class="main-thread__container contact__container">
+                    <div class="position-relative">
+                        <h2 class="contact-heading__title load-hidden"><b>Let's talk</b><span class="dot3 mx-2">.</span></h2>
 
-		function predict(){
-			classifier.predict(function (err, results) {
-				result.innerText = results[0].className;
-				probability.innerText = results[0].probability.toFixed(4) * 100;
-			});
-		}
-		createVideo()
-		
-		setInterval(() => {
-			setUp();
-			predict();	
-		}, 1000);
-		
+                        <p class="page-header__lede mt-5 load-hidden">If you have anything in your mind let's talk and start together, my inbox is always open. Whether you have a question or just want to say hi, I’ll try my best to get back to you!</p>
 
-		
+                        <ul class="social-links contact-social__links loading-hidden mt-5">
+                            <li class="social-links__item">
+                                <a title="GitHub" class="social-links__link social-links__link--gh" href="https://github.com/sibaspage" target="_blank">Visit my GitHub</a>
+                            </li>
+                            <li class="social-links__item">
+                                <a title="LinkedIn" class="social-links__link social-links__link--li" href="https://www.linkedin.com/in/sibaspage/" target="_blank">Follow me on
+                                    LinkedIn</a>
+                            </li>
+                            <li class="social-links__item">
+                                <a class="social-links__link social-links__link--dr" title="Dribble"
+                                    href="https://dribbble.com/sibaspage" target="_blank">Follow me on Dribble</a>
+                            </li>
+                            <li class="social-links__item">
+                                <a class="social-links__link social-links__link--email"
+                                    href="mailto:sibaspage@gmail.com" target="_blank">Send me an Email</a>
+                            </li>
+                        </ul>
 
-	</script>
+                        <div class="stripe-4 load-hidden strip-circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Flyout menu -->
+    <div class="flyout-menu__container position-relative">
+        <div class="main-menu__mask"></div>
+        <div class="main-menu__flyout loading-hidden">
+            <div class="main-menu__inr wrap">
+                <!-- For icon credit goeses to https://www.flaticon.com/ -->
+                <ul class="social-links loading-hidden">
+                    <li class="social-links__item">
+                        <a title="GitHub" class="social-links__link social-links__link--gh" href="https://github.com/sibaspage" target="_blank">Visit my GitHub</a>
+                    </li>
+                    <li class="social-links__item">
+                        <a title="LinkedIn" class="social-links__link social-links__link--li" href="https://www.linkedin.com/in/sibaspage/" target="_blank">Follow me on
+                            LinkedIn</a>
+                    </li>
+                    <li class="social-links__item">
+                        <a class="social-links__link social-links__link--dr" title="Dribble"
+                            href="https://dribbble.com/sibaspage" target="_blank">Follow me on Dribble</a>
+                    </li>
+                    <li class="social-links__item">
+                        <a class="social-links__link social-links__link--email"
+                            href="mailto:sibaspage@gmail.com" target="_blank">Send me an Email</a>
+                    </li>
+                </ul>
+                <ul class="main-menu__links primary-links loading-hidden">
+                    <li class="primary-links__item" onclick="navigateTo(1)"><a aria-current="page" class="primary-links__link t-primary" href="#" data-tootip="section1"
+                            aria-describedby="desc_home">Home</a> <span id="desc_home" class="primary-links__summary">Back to
+                            the home page.</span></li>
+                    <li class="primary-links__item" onclick="navigateTo(2)"><a aria-current="page" class="primary-links__link t-primary" href="#" data-tootip="section2"
+                            aria-describedby="desc_work">Work</a> <span id="desc_work" class="primary-links__summary">My
+                            approach to development.</span></li>
+                    <li class="primary-links__item" onclick="navigateTo(3)"><a class="primary-links__link t-primary" href="#" data-tootip="section3"
+                            aria-describedby="desc_about">About</a> <span id="desc_about" class="primary-links__summary">A
+                            little about me and my background.</span></li>
+                    <li class="primary-links__item" onclick="navigateTo(4)"><a class="primary-links__link t-primary" href="#" data-tootip="section4"
+                            aria-describedby="desc_contact">Contact</a> <span id="desc_contact" class="primary-links__summary">Let's
+                            work together.</span></li>
+                </ul>
+            </div>
+        </div>
+    
+    </div>
+    <small class="made-in-wales">© <span id="cr-yr"></span> sibaspage | sibaspage@gmail.com</small>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pagePiling.js/1.5.6/jquery.pagepiling.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="js/script.js"></script>
 </body>
+
 </html>
