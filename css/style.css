@@ -683,16 +683,32 @@ header {
     margin: 15px 7px;
 }
 
-
-
-@media (min-width: 576px) { 
+@media (min-width: 576px) {
     .my-work__item{
         width: 100%;
         margin: 25px;
     }
 }
 
-@media (max-width: 768px) { 
+@media (max-width: 576px) {
+    .my-work__item{
+        width: 120px !important;
+        margin: 5px !important;
+        height: 90px;
+    }
+    .my-work__item h6{
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+    .my-work__item img{
+      height: 30px;
+    }
+    .logo-item img{
+      height: 35px
+    }
+}
+
+@media (max-width: 768px) {
     .my-work__item{
         width: 50%;
         margin: 25px;
@@ -717,9 +733,14 @@ header {
     .main-menu__links{
         padding-left: 0;
     }
+    .made-in-wales{
+      width: 100%;
+      left: 0;
+      padding-left: 25px;
+    }
 }
 
-@media (max-width: 1200px) { 
+@media (max-width: 1200px) {
     .strip-box{
         width: 100% !important;
     }
@@ -732,7 +753,7 @@ header {
     }
     .made-in-wales{
         transform: rotate(0deg);
-        bottom: 0%;
+        bottom: 1%;
     }
     .scroll-container{
         display: none;
@@ -776,7 +797,7 @@ header {
     }
 }
 
-@media (min-width: 1400px) { 
+@media (min-width: 1400px) {
     .my-work__item{
         width: 200px;
         height: 250px;
@@ -785,3 +806,6 @@ header {
     }
 
 }
+
+
+* { transition: all 0.3s ease-in-out; }

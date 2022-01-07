@@ -1,6 +1,6 @@
 $(document).ready(function () {
     var sound = document.getElementById('ad-sound');
-
+    var pageLeaveAudio = document.getElementById('ad-sound1');
     $('#cr-yr').html(new Date().getFullYear());
     $('#main-slider__container').pagepiling({
         menu: '#main-header',
@@ -17,7 +17,6 @@ $(document).ready(function () {
             'textColor': '#000',
             'bulletsColor': '#000',
             'position': 'right',
-            'tooltips': ['Home', 'Work', 'About', 'Contact']
         },
         normalScrollElements: null,
         normalScrollElementTouchThreshold: 5,
@@ -27,8 +26,9 @@ $(document).ready(function () {
         animateAnchor: false,
 
         //events
-        onLeave: function (index, nextIndex, direction) { 
+        onLeave: function (index, nextIndex, direction) {
             ScrollReveal({ reset: true });
+            pageLeaveAudio.play();
         },
         afterLoad: function (anchorLink, index) { },
         afterRender: function () { }
@@ -181,7 +181,3 @@ particlesJS("particles-container", {
     },
     "retina_detect": true
 });
-
-
-
-
